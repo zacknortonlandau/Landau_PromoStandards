@@ -139,12 +139,6 @@ namespace Landau_PromoStandards
         }
 
 
-        //public Task<getFilterValuesResponse> getFilterValuesAsync(getFilterValuesRequest request)
-        //{
-        //    return Task.FromResult(getFilterValues(request));
-        //}
-
-
         public getInventoryLevelsResponse getInventoryLevels(getInventoryLevelsRequest request)
         {
             getInventoryLevelsResponse response = new getInventoryLevelsResponse();
@@ -365,11 +359,5 @@ namespace Landau_PromoStandards
 
             return isValidRequest;
         }
-
-
-        //public Task<getInventoryLevelsResponse> getInventoryLevelsAsync(getInventoryLevelsRequest request)
-        //{
-        //    return Task.FromResult(getInventoryLevels(request));
-        //}
     }
 }
