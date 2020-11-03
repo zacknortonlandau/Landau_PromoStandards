@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Landau_PromoStandards.OrderStatus" CodeBehind="OrderStatus.svc.cs" %>

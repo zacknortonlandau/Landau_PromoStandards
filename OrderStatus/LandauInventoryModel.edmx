@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LAN_AX2012_PRODModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_COLORDATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_COLORDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="InventColorId" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+            <PropertyRef Name="RECID" />
+          </Key>
+          <Property Name="ITEMID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="InventColorId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SUNTAFCOLORSEQ" Type="int" />
+          <Property Name="SUNTAFSEASONCODE" Type="nvarchar" MaxLength="10" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="LANCARETYPEID" Type="nvarchar" MaxLength="50" />
+          <Property Name="LANFABRICDIRECTIONID" Type="nvarchar" MaxLength="30" />
+          <Property Name="LANHTSCATEGORY" Type="int" />
+          <Property Name="LANHTSCODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="LANHTSCODEEXPORT" Type="nvarchar" MaxLength="13" />
+          <Property Name="LANHTSCODEINT" Type="nvarchar" MaxLength="13" />
+          <Property Name="LANPRINTGROUPID" Type="nvarchar" MaxLength="10" />
+          <Property Name="LANWEBDISPLAY" Type="int" />
+          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PARTITION" Type="bigint" Nullable="false" />
+          <Property Name="RECID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_GETAVAILABLETOSHIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_GETAVAILABLETOSHIP">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="INVENTSIZEID" />
+            <PropertyRef Name="dimid" />
+            <PropertyRef Name="obdimid" />
+            <PropertyRef Name="GetPhysicalInventoryQty" />
+            <PropertyRef Name="GetCurrentOpenOrderQty" />
+            <PropertyRef Name="GetAvailToShipQty" />
+          </Key>
+          <Property Name="ITEMID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="INVENTCOLORID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="dimid" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="obdimid" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GetPhysicalInventoryQty" Type="numeric" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="GetCurrentOpenOrderQty" Type="numeric" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="GetAvailToShipQty" Type="numeric" Precision="32" Scale="16" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_INVENTORY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_INVENTORY">
+          <Key>
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="INVENTSIZEID" />
+          </Key>
+          <Property Name="ITEMID" Type="nvarchar" MaxLength="20" />
+          <Property Name="INVENTCOLORID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="GETQTYPHYSICAL" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYCURRENTOPENORDER" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYAVAILABLE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYRESERVE" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_RETAILERS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_RETAILERS">
+          <Key>
+            <PropertyRef Name="ACCOUNT" />
+            <PropertyRef Name="STORENAME" />
+            <PropertyRef Name="ADDRESS" />
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="STATE" />
+            <PropertyRef Name="ZIP" />
+            <PropertyRef Name="COUNTY" />
+            <PropertyRef Name="COUNTRY" />
+            <PropertyRef Name="WEBSITE" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="PHONE" />
+            <PropertyRef Name="FAX" />
+            <PropertyRef Name="TERMS" />
+            <PropertyRef Name="SHIPVIA" />
+            <PropertyRef Name="MINSHIPQTY" />
+            <PropertyRef Name="SHIPRULE" />
+            <PropertyRef Name="ISBLOCKED" />
+            <PropertyRef Name="CLASSIFICATIONID" />
+          </Key>
+          <Property Name="ACCOUNT" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="STORENAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="COUNTY" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WEBSITE" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PHONE" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FAX" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TERMS" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SHIPVIA" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AUTHORIZED" Type="varchar" MaxLength="2003" />
+          <Property Name="RESTRICTED" Type="varchar" MaxLength="2000" />
+          <Property Name="MINSHIPQTY" Type="int" Nullable="false" />
+          <Property Name="SHIPRULE" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ISINTERNATIONAL" Type="bit" />
+          <Property Name="ISBLOCKED" Type="int" Nullable="false" />
+          <Property Name="CLASSIFICATIONID" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_SIZEDATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_SIZEDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="InventSizeId" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+          </Key>
+          <Property Name="ITEMID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="InventSizeId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SUNTAFSIZESEQ" Type="int" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PARTITION" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_SKUMASTERDATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_SKUMASTERDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="PRODUCT" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="ITEMGROUPID" />
+            <PropertyRef Name="INVENTSIZEID" />
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="SIZESEQ" />
+            <PropertyRef Name="COLORSEQ" />
+            <PropertyRef Name="COLORNAME" />
+            <PropertyRef Name="INVENTDIMID" />
+            <PropertyRef Name="SUNTAFITEMSTATUS" />
+            <PropertyRef Name="LANCUBEFACTOR" />
+            <PropertyRef Name="LANPRODUCTSEGMENT" />
+            <PropertyRef Name="LANWEIGHT" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+            <PropertyRef Name="CREATEDDATETIME" />
+            <PropertyRef Name="MODIFIEDDATETIME" />
+          </Key>
+          <Property Name="ITEMID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PRODUCT" Type="bigint" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ITEMGROUPID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="INVENTCOLORID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SIZESEQ" Type="int" Nullable="false" />
+          <Property Name="COLORSEQ" Type="int" Nullable="false" />
+          <Property Name="COLORNAME" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="INVENTDIMID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SUNTAFITEMSTATUS" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ITEMBARCODE" Type="nvarchar" MaxLength="80" />
+          <Property Name="LANCUBEFACTOR" Type="numeric" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="LANPRODUCTSEGMENT" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LANWEIGHT" Type="numeric" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="DATAAREAID" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PARTITION" Type="bigint" Nullable="false" />
+          <Property Name="CREATEDDATETIME" Type="datetime" Nullable="false" />
+          <Property Name="MODIFIEDDATETIME" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LAN_AX2012_PROD.dbo.LAN_VW_STYLE_ALTERNATES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LAN_VW_STYLE_ALTERNATES">
+          <Key>
+            <PropertyRef Name="StyleCode" />
+            <PropertyRef Name="StyleCodeAssigned" />
+          </Key>
+          <Property Name="StyleCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StyleCodeAssigned" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LookUpType" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityContainer Name="LAN_AX2012_PRODModelStoreContainer">
+          <EntitySet Name="LAN_VW_COLORDATA" EntityType="Self.LAN_VW_COLORDATA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_COLORDATA].[ITEMID] AS [ITEMID], 
+    [LAN_VW_COLORDATA].[InventColorId] AS [InventColorId], 
+    [LAN_VW_COLORDATA].[SUNTAFCOLORSEQ] AS [SUNTAFCOLORSEQ], 
+    [LAN_VW_COLORDATA].[SUNTAFSEASONCODE] AS [SUNTAFSEASONCODE], 
+    [LAN_VW_COLORDATA].[NAME] AS [NAME], 
+    [LAN_VW_COLORDATA].[LANCARETYPEID] AS [LANCARETYPEID], 
+    [LAN_VW_COLORDATA].[LANFABRICDIRECTIONID] AS [LANFABRICDIRECTIONID], 
+    [LAN_VW_COLORDATA].[LANHTSCATEGORY] AS [LANHTSCATEGORY], 
+    [LAN_VW_COLORDATA].[LANHTSCODE] AS [LANHTSCODE], 
+    [LAN_VW_COLORDATA].[LANHTSCODEEXPORT] AS [LANHTSCODEEXPORT], 
+    [LAN_VW_COLORDATA].[LANHTSCODEINT] AS [LANHTSCODEINT], 
+    [LAN_VW_COLORDATA].[LANPRINTGROUPID] AS [LANPRINTGROUPID], 
+    [LAN_VW_COLORDATA].[LANWEBDISPLAY] AS [LANWEBDISPLAY], 
+    [LAN_VW_COLORDATA].[DATAAREAID] AS [DATAAREAID], 
+    [LAN_VW_COLORDATA].[PARTITION] AS [PARTITION], 
+    [LAN_VW_COLORDATA].[RECID] AS [RECID]
+    FROM [dbo].[LAN_VW_COLORDATA] AS [LAN_VW_COLORDATA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_GETAVAILABLETOSHIP" EntityType="Self.LAN_VW_GETAVAILABLETOSHIP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_GETAVAILABLETOSHIP].[ITEMID] AS [ITEMID], 
+    [LAN_VW_GETAVAILABLETOSHIP].[INVENTCOLORID] AS [INVENTCOLORID], 
+    [LAN_VW_GETAVAILABLETOSHIP].[INVENTSIZEID] AS [INVENTSIZEID], 
+    [LAN_VW_GETAVAILABLETOSHIP].[dimid] AS [dimid], 
+    [LAN_VW_GETAVAILABLETOSHIP].[obdimid] AS [obdimid], 
+    [LAN_VW_GETAVAILABLETOSHIP].[GetPhysicalInventoryQty] AS [GetPhysicalInventoryQty], 
+    [LAN_VW_GETAVAILABLETOSHIP].[GetCurrentOpenOrderQty] AS [GetCurrentOpenOrderQty], 
+    [LAN_VW_GETAVAILABLETOSHIP].[GetAvailToShipQty] AS [GetAvailToShipQty]
+    FROM [dbo].[LAN_VW_GETAVAILABLETOSHIP] AS [LAN_VW_GETAVAILABLETOSHIP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_INVENTORY" EntityType="Self.LAN_VW_INVENTORY" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_INVENTORY].[ITEMID] AS [ITEMID], 
+    [LAN_VW_INVENTORY].[INVENTCOLORID] AS [INVENTCOLORID], 
+    [LAN_VW_INVENTORY].[INVENTSIZEID] AS [INVENTSIZEID], 
+    [LAN_VW_INVENTORY].[GETQTYPHYSICAL] AS [GETQTYPHYSICAL], 
+    [LAN_VW_INVENTORY].[GETQTYCURRENTOPENORDER] AS [GETQTYCURRENTOPENORDER], 
+    [LAN_VW_INVENTORY].[GETQTYAVAILABLE] AS [GETQTYAVAILABLE], 
+    [LAN_VW_INVENTORY].[GETQTYRESERVE] AS [GETQTYRESERVE]
+    FROM [dbo].[LAN_VW_INVENTORY] AS [LAN_VW_INVENTORY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_RETAILERS" EntityType="Self.LAN_VW_RETAILERS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_RETAILERS].[ACCOUNT] AS [ACCOUNT], 
+    [LAN_VW_RETAILERS].[STORENAME] AS [STORENAME], 
+    [LAN_VW_RETAILERS].[ADDRESS] AS [ADDRESS], 
+    [LAN_VW_RETAILERS].[CITY] AS [CITY], 
+    [LAN_VW_RETAILERS].[STATE] AS [STATE], 
+    [LAN_VW_RETAILERS].[ZIP] AS [ZIP], 
+    [LAN_VW_RETAILERS].[COUNTY] AS [COUNTY], 
+    [LAN_VW_RETAILERS].[COUNTRY] AS [COUNTRY], 
+    [LAN_VW_RETAILERS].[WEBSITE] AS [WEBSITE], 
+    [LAN_VW_RETAILERS].[EMAIL] AS [EMAIL], 
+    [LAN_VW_RETAILERS].[PHONE] AS [PHONE], 
+    [LAN_VW_RETAILERS].[FAX] AS [FAX], 
+    [LAN_VW_RETAILERS].[TERMS] AS [TERMS], 
+    [LAN_VW_RETAILERS].[SHIPVIA] AS [SHIPVIA], 
+    [LAN_VW_RETAILERS].[AUTHORIZED] AS [AUTHORIZED], 
+    [LAN_VW_RETAILERS].[RESTRICTED] AS [RESTRICTED], 
+    [LAN_VW_RETAILERS].[MINSHIPQTY] AS [MINSHIPQTY], 
+    [LAN_VW_RETAILERS].[SHIPRULE] AS [SHIPRULE], 
+    [LAN_VW_RETAILERS].[ISINTERNATIONAL] AS [ISINTERNATIONAL], 
+    [LAN_VW_RETAILERS].[ISBLOCKED] AS [ISBLOCKED], 
+    [LAN_VW_RETAILERS].[CLASSIFICATIONID] AS [CLASSIFICATIONID]
+    FROM [dbo].[LAN_VW_RETAILERS] AS [LAN_VW_RETAILERS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_SIZEDATA" EntityType="Self.LAN_VW_SIZEDATA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_SIZEDATA].[ITEMID] AS [ITEMID], 
+    [LAN_VW_SIZEDATA].[InventSizeId] AS [InventSizeId], 
+    [LAN_VW_SIZEDATA].[SUNTAFSIZESEQ] AS [SUNTAFSIZESEQ], 
+    [LAN_VW_SIZEDATA].[NAME] AS [NAME], 
+    [LAN_VW_SIZEDATA].[Expr1] AS [Expr1], 
+    [LAN_VW_SIZEDATA].[DATAAREAID] AS [DATAAREAID], 
+    [LAN_VW_SIZEDATA].[PARTITION] AS [PARTITION]
+    FROM [dbo].[LAN_VW_SIZEDATA] AS [LAN_VW_SIZEDATA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_SKUMASTERDATA" EntityType="Self.LAN_VW_SKUMASTERDATA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_SKUMASTERDATA].[ITEMID] AS [ITEMID], 
+    [LAN_VW_SKUMASTERDATA].[PRODUCT] AS [PRODUCT], 
+    [LAN_VW_SKUMASTERDATA].[ItemName] AS [ItemName], 
+    [LAN_VW_SKUMASTERDATA].[ITEMGROUPID] AS [ITEMGROUPID], 
+    [LAN_VW_SKUMASTERDATA].[INVENTSIZEID] AS [INVENTSIZEID], 
+    [LAN_VW_SKUMASTERDATA].[INVENTCOLORID] AS [INVENTCOLORID], 
+    [LAN_VW_SKUMASTERDATA].[SIZESEQ] AS [SIZESEQ], 
+    [LAN_VW_SKUMASTERDATA].[COLORSEQ] AS [COLORSEQ], 
+    [LAN_VW_SKUMASTERDATA].[COLORNAME] AS [COLORNAME], 
+    [LAN_VW_SKUMASTERDATA].[INVENTDIMID] AS [INVENTDIMID], 
+    [LAN_VW_SKUMASTERDATA].[SUNTAFITEMSTATUS] AS [SUNTAFITEMSTATUS], 
+    [LAN_VW_SKUMASTERDATA].[ITEMBARCODE] AS [ITEMBARCODE], 
+    [LAN_VW_SKUMASTERDATA].[LANCUBEFACTOR] AS [LANCUBEFACTOR], 
+    [LAN_VW_SKUMASTERDATA].[LANPRODUCTSEGMENT] AS [LANPRODUCTSEGMENT], 
+    [LAN_VW_SKUMASTERDATA].[LANWEIGHT] AS [LANWEIGHT], 
+    [LAN_VW_SKUMASTERDATA].[DATAAREAID] AS [DATAAREAID], 
+    [LAN_VW_SKUMASTERDATA].[PARTITION] AS [PARTITION], 
+    [LAN_VW_SKUMASTERDATA].[CREATEDDATETIME] AS [CREATEDDATETIME], 
+    [LAN_VW_SKUMASTERDATA].[MODIFIEDDATETIME] AS [MODIFIEDDATETIME]
+    FROM [dbo].[LAN_VW_SKUMASTERDATA] AS [LAN_VW_SKUMASTERDATA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LAN_VW_STYLE_ALTERNATES" EntityType="Self.LAN_VW_STYLE_ALTERNATES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LAN_VW_STYLE_ALTERNATES].[StyleCode] AS [StyleCode], 
+    [LAN_VW_STYLE_ALTERNATES].[StyleCodeAssigned] AS [StyleCodeAssigned], 
+    [LAN_VW_STYLE_ALTERNATES].[LookUpType] AS [LookUpType]
+    FROM [dbo].[LAN_VW_STYLE_ALTERNATES] AS [LAN_VW_STYLE_ALTERNATES]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LAN_AX2012_PRODModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LAN_VW_COLORDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="InventColorId" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+            <PropertyRef Name="RECID" />
+          </Key>
+          <Property Name="ITEMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InventColorId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SUNTAFCOLORSEQ" Type="Int32" />
+          <Property Name="SUNTAFSEASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LANCARETYPEID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LANFABRICDIRECTIONID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LANHTSCATEGORY" Type="Int32" />
+          <Property Name="LANHTSCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LANHTSCODEEXPORT" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="LANHTSCODEINT" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="LANPRINTGROUPID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LANWEBDISPLAY" Type="Int32" />
+          <Property Name="DATAAREAID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PARTITION" Type="Int64" Nullable="false" />
+          <Property Name="RECID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAN_VW_GETAVAILABLETOSHIP">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="INVENTSIZEID" />
+            <PropertyRef Name="dimid" />
+            <PropertyRef Name="obdimid" />
+            <PropertyRef Name="GetPhysicalInventoryQty" />
+            <PropertyRef Name="GetCurrentOpenOrderQty" />
+            <PropertyRef Name="GetAvailToShipQty" />
+          </Key>
+          <Property Name="ITEMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTCOLORID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dimid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="obdimid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GetPhysicalInventoryQty" Type="Decimal" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="GetCurrentOpenOrderQty" Type="Decimal" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="GetAvailToShipQty" Type="Decimal" Precision="32" Scale="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAN_VW_INVENTORY">
+          <Key>
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="INVENTSIZEID" />
+          </Key>
+          <Property Name="ITEMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="INVENTCOLORID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GETQTYPHYSICAL" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYCURRENTOPENORDER" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYAVAILABLE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GETQTYRESERVE" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="LAN_VW_RETAILERS">
+          <Key>
+            <PropertyRef Name="ACCOUNT" />
+            <PropertyRef Name="STORENAME" />
+            <PropertyRef Name="ADDRESS" />
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="STATE" />
+            <PropertyRef Name="ZIP" />
+            <PropertyRef Name="COUNTY" />
+            <PropertyRef Name="COUNTRY" />
+            <PropertyRef Name="WEBSITE" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="PHONE" />
+            <PropertyRef Name="FAX" />
+            <PropertyRef Name="TERMS" />
+            <PropertyRef Name="SHIPVIA" />
+            <PropertyRef Name="MINSHIPQTY" />
+            <PropertyRef Name="SHIPRULE" />
+            <PropertyRef Name="ISBLOCKED" />
+            <PropertyRef Name="CLASSIFICATIONID" />
+          </Key>
+          <Property Name="ACCOUNT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STORENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CITY" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="STATE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COUNTY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WEBSITE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FAX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TERMS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SHIPVIA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AUTHORIZED" Type="String" MaxLength="2003" FixedLength="false" Unicode="false" />
+          <Property Name="RESTRICTED" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="MINSHIPQTY" Type="Int32" Nullable="false" />
+          <Property Name="SHIPRULE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISINTERNATIONAL" Type="Boolean" />
+          <Property Name="ISBLOCKED" Type="Int32" Nullable="false" />
+          <Property Name="CLASSIFICATIONID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAN_VW_SIZEDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="InventSizeId" />
+            <PropertyRef Name="NAME" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+          </Key>
+          <Property Name="ITEMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InventSizeId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SUNTAFSIZESEQ" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Expr1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATAAREAID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PARTITION" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAN_VW_SKUMASTERDATA">
+          <Key>
+            <PropertyRef Name="ITEMID" />
+            <PropertyRef Name="PRODUCT" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="ITEMGROUPID" />
+            <PropertyRef Name="INVENTSIZEID" />
+            <PropertyRef Name="INVENTCOLORID" />
+            <PropertyRef Name="SIZESEQ" />
+            <PropertyRef Name="COLORSEQ" />
+            <PropertyRef Name="COLORNAME" />
+            <PropertyRef Name="INVENTDIMID" />
+            <PropertyRef Name="SUNTAFITEMSTATUS" />
+            <PropertyRef Name="LANCUBEFACTOR" />
+            <PropertyRef Name="LANPRODUCTSEGMENT" />
+            <PropertyRef Name="LANWEIGHT" />
+            <PropertyRef Name="DATAAREAID" />
+            <PropertyRef Name="PARTITION" />
+            <PropertyRef Name="CREATEDDATETIME" />
+            <PropertyRef Name="MODIFIEDDATETIME" />
+          </Key>
+          <Property Name="ITEMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRODUCT" Type="Int64" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ITEMGROUPID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTSIZEID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTCOLORID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SIZESEQ" Type="Int32" Nullable="false" />
+          <Property Name="COLORSEQ" Type="Int32" Nullable="false" />
+          <Property Name="COLORNAME" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INVENTDIMID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SUNTAFITEMSTATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ITEMBARCODE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="LANCUBEFACTOR" Type="Decimal" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="LANPRODUCTSEGMENT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LANWEIGHT" Type="Decimal" Precision="32" Scale="16" Nullable="false" />
+          <Property Name="DATAAREAID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PARTITION" Type="Int64" Nullable="false" />
+          <Property Name="CREATEDDATETIME" Type="DateTime" Nullable="false" />
+          <Property Name="MODIFIEDDATETIME" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LAN_VW_STYLE_ALTERNATES">
+          <Key>
+            <PropertyRef Name="StyleCode" />
+            <PropertyRef Name="StyleCodeAssigned" />
+          </Key>
+          <Property Name="StyleCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StyleCodeAssigned" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LookUpType" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LAN_AX2012_PRODEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LAN_VW_COLORDATA" EntityType="Self.LAN_VW_COLORDATA" />
+          <EntitySet Name="LAN_VW_GETAVAILABLETOSHIP" EntityType="Self.LAN_VW_GETAVAILABLETOSHIP" />
+          <EntitySet Name="LAN_VW_INVENTORY" EntityType="Self.LAN_VW_INVENTORY" />
+          <EntitySet Name="LAN_VW_RETAILERS" EntityType="Self.LAN_VW_RETAILERS" />
+          <EntitySet Name="LAN_VW_SIZEDATA" EntityType="Self.LAN_VW_SIZEDATA" />
+          <EntitySet Name="LAN_VW_SKUMASTERDATA" EntityType="Self.LAN_VW_SKUMASTERDATA" />
+          <EntitySet Name="LAN_VW_STYLE_ALTERNATES" EntityType="Self.LAN_VW_STYLE_ALTERNATES" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LAN_AX2012_PRODModelStoreContainer" CdmEntityContainer="LAN_AX2012_PRODEntities">
+          <EntitySetMapping Name="LAN_VW_COLORDATA">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_COLORDATA">
+              <MappingFragment StoreEntitySet="LAN_VW_COLORDATA">
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="InventColorId" ColumnName="InventColorId" />
+                <ScalarProperty Name="SUNTAFCOLORSEQ" ColumnName="SUNTAFCOLORSEQ" />
+                <ScalarProperty Name="SUNTAFSEASONCODE" ColumnName="SUNTAFSEASONCODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LANCARETYPEID" ColumnName="LANCARETYPEID" />
+                <ScalarProperty Name="LANFABRICDIRECTIONID" ColumnName="LANFABRICDIRECTIONID" />
+                <ScalarProperty Name="LANHTSCATEGORY" ColumnName="LANHTSCATEGORY" />
+                <ScalarProperty Name="LANHTSCODE" ColumnName="LANHTSCODE" />
+                <ScalarProperty Name="LANHTSCODEEXPORT" ColumnName="LANHTSCODEEXPORT" />
+                <ScalarProperty Name="LANHTSCODEINT" ColumnName="LANHTSCODEINT" />
+                <ScalarProperty Name="LANPRINTGROUPID" ColumnName="LANPRINTGROUPID" />
+                <ScalarProperty Name="LANWEBDISPLAY" ColumnName="LANWEBDISPLAY" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="PARTITION" ColumnName="PARTITION" />
+                <ScalarProperty Name="RECID" ColumnName="RECID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_GETAVAILABLETOSHIP">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_GETAVAILABLETOSHIP">
+              <MappingFragment StoreEntitySet="LAN_VW_GETAVAILABLETOSHIP">
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="INVENTCOLORID" ColumnName="INVENTCOLORID" />
+                <ScalarProperty Name="INVENTSIZEID" ColumnName="INVENTSIZEID" />
+                <ScalarProperty Name="dimid" ColumnName="dimid" />
+                <ScalarProperty Name="obdimid" ColumnName="obdimid" />
+                <ScalarProperty Name="GetPhysicalInventoryQty" ColumnName="GetPhysicalInventoryQty" />
+                <ScalarProperty Name="GetCurrentOpenOrderQty" ColumnName="GetCurrentOpenOrderQty" />
+                <ScalarProperty Name="GetAvailToShipQty" ColumnName="GetAvailToShipQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_INVENTORY">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_INVENTORY">
+              <MappingFragment StoreEntitySet="LAN_VW_INVENTORY">
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="INVENTCOLORID" ColumnName="INVENTCOLORID" />
+                <ScalarProperty Name="INVENTSIZEID" ColumnName="INVENTSIZEID" />
+                <ScalarProperty Name="GETQTYPHYSICAL" ColumnName="GETQTYPHYSICAL" />
+                <ScalarProperty Name="GETQTYCURRENTOPENORDER" ColumnName="GETQTYCURRENTOPENORDER" />
+                <ScalarProperty Name="GETQTYAVAILABLE" ColumnName="GETQTYAVAILABLE" />
+                <ScalarProperty Name="GETQTYRESERVE" ColumnName="GETQTYRESERVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_RETAILERS">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_RETAILERS">
+              <MappingFragment StoreEntitySet="LAN_VW_RETAILERS">
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="STORENAME" ColumnName="STORENAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="TERMS" ColumnName="TERMS" />
+                <ScalarProperty Name="SHIPVIA" ColumnName="SHIPVIA" />
+                <ScalarProperty Name="AUTHORIZED" ColumnName="AUTHORIZED" />
+                <ScalarProperty Name="RESTRICTED" ColumnName="RESTRICTED" />
+                <ScalarProperty Name="MINSHIPQTY" ColumnName="MINSHIPQTY" />
+                <ScalarProperty Name="SHIPRULE" ColumnName="SHIPRULE" />
+                <ScalarProperty Name="ISINTERNATIONAL" ColumnName="ISINTERNATIONAL" />
+                <ScalarProperty Name="ISBLOCKED" ColumnName="ISBLOCKED" />
+                <ScalarProperty Name="CLASSIFICATIONID" ColumnName="CLASSIFICATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_SIZEDATA">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_SIZEDATA">
+              <MappingFragment StoreEntitySet="LAN_VW_SIZEDATA">
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="InventSizeId" ColumnName="InventSizeId" />
+                <ScalarProperty Name="SUNTAFSIZESEQ" ColumnName="SUNTAFSIZESEQ" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="PARTITION" ColumnName="PARTITION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_SKUMASTERDATA">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_SKUMASTERDATA">
+              <MappingFragment StoreEntitySet="LAN_VW_SKUMASTERDATA">
+                <ScalarProperty Name="ITEMID" ColumnName="ITEMID" />
+                <ScalarProperty Name="PRODUCT" ColumnName="PRODUCT" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ITEMGROUPID" ColumnName="ITEMGROUPID" />
+                <ScalarProperty Name="INVENTSIZEID" ColumnName="INVENTSIZEID" />
+                <ScalarProperty Name="INVENTCOLORID" ColumnName="INVENTCOLORID" />
+                <ScalarProperty Name="SIZESEQ" ColumnName="SIZESEQ" />
+                <ScalarProperty Name="COLORSEQ" ColumnName="COLORSEQ" />
+                <ScalarProperty Name="COLORNAME" ColumnName="COLORNAME" />
+                <ScalarProperty Name="INVENTDIMID" ColumnName="INVENTDIMID" />
+                <ScalarProperty Name="SUNTAFITEMSTATUS" ColumnName="SUNTAFITEMSTATUS" />
+                <ScalarProperty Name="ITEMBARCODE" ColumnName="ITEMBARCODE" />
+                <ScalarProperty Name="LANCUBEFACTOR" ColumnName="LANCUBEFACTOR" />
+                <ScalarProperty Name="LANPRODUCTSEGMENT" ColumnName="LANPRODUCTSEGMENT" />
+                <ScalarProperty Name="LANWEIGHT" ColumnName="LANWEIGHT" />
+                <ScalarProperty Name="DATAAREAID" ColumnName="DATAAREAID" />
+                <ScalarProperty Name="PARTITION" ColumnName="PARTITION" />
+                <ScalarProperty Name="CREATEDDATETIME" ColumnName="CREATEDDATETIME" />
+                <ScalarProperty Name="MODIFIEDDATETIME" ColumnName="MODIFIEDDATETIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LAN_VW_STYLE_ALTERNATES">
+            <EntityTypeMapping TypeName="LAN_AX2012_PRODModel.LAN_VW_STYLE_ALTERNATES">
+              <MappingFragment StoreEntitySet="LAN_VW_STYLE_ALTERNATES">
+                <ScalarProperty Name="StyleCode" ColumnName="StyleCode" />
+                <ScalarProperty Name="StyleCodeAssigned" ColumnName="StyleCodeAssigned" />
+                <ScalarProperty Name="LookUpType" ColumnName="LookUpType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

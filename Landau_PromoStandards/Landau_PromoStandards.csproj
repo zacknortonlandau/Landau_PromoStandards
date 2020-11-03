@@ -1,0 +1,331 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CAC5528F-100F-4603-8E19-8F53BA584D29}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Landau_PromoStandards</RootNamespace>
+    <AssemblyName>Landau_PromoStandards</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LandauAuthenticationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LandauAuthenticationModel.edmx</DependentUpon>
+      <LastGenOutput>LandauAuthenticationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LandauAuthenticationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LandauAuthenticationModel.edmx</DependentUpon>
+      <LastGenOutput>LandauAuthenticationModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="LandauInventoryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LandauInventoryModel.edmx</DependentUpon>
+      <LastGenOutput>LandauInventoryModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LandauInventoryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LandauInventoryModel.edmx</DependentUpon>
+      <LastGenOutput>LandauInventoryModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="LPSService.svc" />
+    <Content Include="OrderStatus.svc" />
+    <Content Include="OrderStatusModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderStatusModel.edmx</DependentUpon>
+      <LastGenOutput>OrderStatusModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OrderStatusModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderStatusModel.edmx</DependentUpon>
+      <LastGenOutput>OrderStatusModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="output.config" />
+    <EntityDeploy Include="LandauInventoryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LandauInventoryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LandauInventoryModel.edmx.diagram">
+      <DependentUpon>LandauInventoryModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="LandauAuthenticationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LandauAuthenticationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LandauAuthenticationModel.edmx.diagram">
+      <DependentUpon>LandauAuthenticationModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication.cs">
+      <DependentUpon>LandauAuthenticationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory_v1_2_1.cs" />
+    <Compile Include="LandauAuthenticationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LandauAuthenticationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LandauAuthenticationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LandauAuthenticationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LandauInventoryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LandauInventoryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LandauInventoryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_Reports_CustomerOpenItems_JG_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_Reports_CustomerOpenItems_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_Reports_InvoiceSummary_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_Reports_ShipmentsByAccount_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_Reports_ShipmentsByOrderNumber_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SALESLINES_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERBYORDERIDWITHSTATUS_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERBYORDERID_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERBYPONUMBER_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERSBYACCOUNT60days_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_SubmittedOrdersByAccountByDateRange_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERSBYACCOUNTWITHSTATUS_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_SP_B2B_SUBMITTEDORDERSBYACCOUNT_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lan_sp_B2B_SubmittedOrdersByAccount_v2_Result.cs">
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_COLORDATA.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_GETAVAILABLETOSHIP.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_INVENTORY.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_RETAILERS.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_SIZEDATA.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_SKUMASTERDATA.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LAN_VW_STYLE_ALTERNATES.cs">
+      <DependentUpon>LandauInventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LPSService.svc.cs">
+      <DependentUpon>LPSService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatus.svc.cs">
+      <DependentUpon>OrderStatus.svc</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderStatusModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderStatusModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatus_v1_0_0.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="InventoryService_v1_2_1\WSDL\GetFilterValuesReply.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryService_v1_2_1\WSDL\GetFilterValuesRequest.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryService_v1_2_1\WSDL\InventoryReply.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryService_v1_2_1\WSDL\InventoryRequest.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryService_v1_2_1\WSDL\InventoryService.wsdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EntityDeploy Include="OrderStatusModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrderStatusModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="OrderStatusModel.edmx.diagram">
+      <DependentUpon>OrderStatusModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\DevPublishAPI-TST-242.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52632</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52632/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
